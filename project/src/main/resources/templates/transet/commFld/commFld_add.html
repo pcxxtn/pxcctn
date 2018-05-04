@@ -1,0 +1,254 @@
+<div class="modal fade" id="commFld-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="commFld-add-modal-title">新增字典</h3>
+            </div>
+            <div class="modal-body">
+                <form id="commFld-add-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道号：
+					            </span>
+                                <div class="form-group">
+                                    <select name="chnlno" id="chnlno" class="form-control" onchange="changeChnlno()"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯结构号：
+					            </span>
+                                <div class="form-group">
+                                    <select name="commstructno" id="commstructno" class="form-control"></select>
+                                    <input type="hidden" name="commstructfldno">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字段名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="commstructfldname" class="form-control">
+                                    <input type="hidden" name="oldcommstructfldname" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字段描述：
+					            </span>
+                                <div class="form-group">
+                                    <input name="commstructfldexpr" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字段类型：
+					            </span>
+                                <div class="form-group">
+                                    <select name="fldtype" id="fldtype" class="form-control">
+                                        <option value="" selected>所有</option>
+                                        <option value="0">B-Sub Begin</option>
+                                        <option value="1">E-Sub End</option>
+                                        <option value="2">V-变量</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字段长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="fldlen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 结构变量类型：
+					            </span>
+                                <div class="form-group">
+                                    <select name="structvartype" id="structvartype" class="form-control">
+                                        <option value="" selected>所有</option>
+                                        <option value="0">C-字符串</option>
+                                        <option value="1">D-双精度</option>
+                                        <option value="2">F-浮点数</option>
+                                        <option value="3">I-整型</option>
+                                        <option value="4">L-长整型</option>
+                                        <option value="5">S-短整型</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 混合变量类型：
+					            </span>
+                                <div class="form-group">
+                                    <select type="text" name="mixvartype" class="form-control">
+                                        <option value="" selected>所有</option>
+                                        <option value="0">C-定长</option>
+                                        <option value="1">N-NLVAR</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 对齐方式：
+					            </span>
+                                <div class="form-group">
+                                    <select type="text" name="alignmode" class="form-control">
+                                        <option value="">所有</option>
+                                        <option value="0">0－左对齐</option>
+                                        <option value="1">1－右对齐</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 填充字符：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="fillsmbl" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 结束符标志：
+					            </span>
+                                <div class="form-group">
+                                    <select type="text" name="endsmblflag" class="form-control">
+                                        <option value="" selected>所有</option>
+                                        <option value="0">0－无</option>
+                                        <option value="1">1－有</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 分隔符：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="breaksmbl" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 NLVAR位数：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="nlvarlen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 NLVAR长度位结束符标志：
+					            </span>
+                                <div class="form-group">
+                                    <select name="nlvarflag" class="form-control">
+                                        <option value="">所有</option>
+                                        <option value="0">0-大结束符</option>
+                                        <option value="1">1-小结束符</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 NLVAR长度位权值：
+					            </span>
+                                <div class="form-group">
+                                    <select name="nlvarpower" class="form-control">
+                                        <option>所有</option>
+                                        <option value="0">B-二进制</option>
+                                        <option value="1">O-八进制</option>
+                                        <option value="2">D-十进制</option>
+                                        <option value="3">H-十六进制</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 变量号：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="varno" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 是否参与mac校验：
+					            </span>
+                                <input type="checkbox" name="pinflag" checked>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 pin码标志：
+					            </span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" name="macflag" checked class="toggle-switch__checkbox">
+                                    <i class="toggle-switch__helper"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="commFld-add-btn" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/commFld/commFldAdd.js}"></script>

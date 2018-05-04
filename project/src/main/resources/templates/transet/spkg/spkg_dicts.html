@@ -1,0 +1,62 @@
+<style>
+    .spkg-Config-Table {
+        display: block;
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .spkg-Dicts-Table {
+        display: block;
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+    .fudong{
+        /*height: 200px;position: fixed; bottom:0;left:0;right:0;*/
+
+    }
+
+</style>
+<div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml">
+    <div data-th-include="transet/spkg/spkg_proc_func"></div>
+    <div class="card-block" id="cardBlock">
+        <div class="table-responsive">
+            <div id="data-table_wrapper1" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" id="updateSpkFld">修改报文域</a>
+                            <a href="javascript:void(0)" class="dropdown-item" id="delSelectedDicts">删除报文域</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+
+                </div>
+                <div class="title"><h5>报文域</h5></div>
+                <div class="spkg-Config-Table">
+                    <table id="spkgConfigTable" data-mobile-responsive="true" clickToSelect="true" data-use-row-attr-func="true" data-reorderable-rows="true" class="mb-bootstrap-table text-nowrap">
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-save btn-lg" id="dicts-save" name="save">保存</button>
+                </div>
+                <div class="fudong">
+                    <div class="title"><h5>数据字典</h5></div>
+                    <div class="spkg-Dicts-Table">
+                        <table id="spkgDictsTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="pageBack();">返回</button>
+                <button type="button" class="btn btn-save btn-lg" id="dicts-add" name="dictsAdd">添加</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/spkg/spkgDicts.js}"></script>
+<script data-th-src="@{js/app/transet/spkg/spkgFldEdit.js}"></script>
+<script data-th-src="@{js/app/js/bootstrap-table-reorder-rows.js}"></script>
+<script data-th-src="@{js/app/js/jquery.tablednd.js}"></script>

@@ -1,0 +1,91 @@
+<div class="modal fade" id="conv-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="conv-add-modal-title">交易码映射</h3>
+            </div>
+            <div class="modal-body">
+                <form id="conv-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道号：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="chnlno" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 外部交易码：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="ftrancode" class="form-control">
+                                    <!--<input type="text" hidden name="oldTranCode" class="form-control">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 业务种类：
+					            </span>
+                                <div class="form-group">
+                                    <!--<input type="text" name="busitype" class="form-control">-->
+                                    <select style="width: 100%;" id="busitype" name="busitype"></select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 内部映射：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="tranpath" class="form-control">
+                                    <!--<select name="jourflag" id="jourflag">-->
+                                    <!--<option value="" ></option>-->
+                                    <!--<option value="0" >不记流水</option>-->
+                                    <!--<option value="1" >记流水</option>-->
+                                    <!--</select>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 内部交易名：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="ttranname" class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-del" id="conv-del-btn" style="color: red;margin-right: 10%;">删除</button>
+
+                <button type="button" class="btn btn-save" id="conv-add-btn" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/tranPkg/conv.js}"></script>

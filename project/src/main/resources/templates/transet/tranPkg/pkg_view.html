@@ -1,0 +1,57 @@
+<div class="card">
+    <div data-th-include="transet/tranPkg/pkg_add"></div>
+    <div data-th-include="transet/tranPkg/code_conv"></div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" /> <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="pkg:add,pkg:delete,pkg:update,pkg:map">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#pkg-add" shiro:hasPermission="pkg:add">新增交易码</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updatePkg()" shiro:hasPermission="pkg:update">修改交易码</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletePkg()" shiro:hasPermission="pkg:delete">删除交易码</a>
+                            <!--<a href="javascript:void(0)" class="dropdown-item" onclick="setMap()"  shiro:hasPermission="pkg:map">交易映射</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="pkg-table-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 渠道号： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="chnlno" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 外部交易码： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="ftrancode" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 外部交易名： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="ftranname" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <table id="pkgTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script data-th-src="@{js/app/transet/tranPkg/pkg.js}"></script>

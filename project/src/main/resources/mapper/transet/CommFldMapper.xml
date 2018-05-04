@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.CommFldMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.CommFld" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="CHNLNO" property="chnlno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTNO" property="commstructno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTFLDNO" property="commstructfldno" jdbcType="DECIMAL" />
+    <result column="COMMSTRUCTFLDNAME" property="commstructfldname" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTFLDEXPR" property="commstructfldexpr" jdbcType="VARCHAR" />
+    <result column="FLDTYPE" property="fldtype" jdbcType="VARCHAR" />
+    <result column="STRUCTVARTYPE" property="structvartype" jdbcType="VARCHAR" />
+    <result column="MIXVARTYPE" property="mixvartype" jdbcType="VARCHAR" />
+    <result column="FLDLEN" property="fldlen" jdbcType="DECIMAL" />
+    <result column="ALIGNMODE" property="alignmode" jdbcType="VARCHAR" />
+    <result column="FILLSMBL" property="fillsmbl" jdbcType="VARCHAR" />
+    <result column="ENDSMBLFLAG" property="endsmblflag" jdbcType="VARCHAR" />
+    <result column="BREAKSMBL" property="breaksmbl" jdbcType="VARCHAR" />
+    <result column="NLVARLEN" property="nlvarlen" jdbcType="DECIMAL" />
+    <result column="NLVARFLAG" property="nlvarflag" jdbcType="VARCHAR" />
+    <result column="NLVARPOWER" property="nlvarpower" jdbcType="VARCHAR" />
+    <result column="VARNO" property="varno" jdbcType="DECIMAL" />
+    <result column="PINFLAG" property="pinflag" jdbcType="VARCHAR" />
+    <result column="MACFLAG" property="macflag" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <delete id="deleteByKey" parameterType="com.fudian.mid.transet.domain.CommFld">
+    DELETE FROM T_SYS_COMM_STRUCT_FLD
+    WHERE CHNLNO=#{chnlno,jdbcType=VARCHAR} and COMMSTRUCTNO=#{commstructno,jdbcType=VARCHAR} and
+    COMMSTRUCTFLDNO=#{commstructfldno,jdbcType=VARCHAR}
+  </delete>
+  <select id="findCommFld" resultType="com.fudian.mid.transet.domain.CommFld" >
+    select * from S_COMM_STRUCT_FLD d
+    where 1=1
+    <if test="commstructfldname != null and commstructfldname != ''">
+      AND d.commstructfldname = #{commstructfldname}
+    </if>
+    <if test="chnlno != null and chnlno != ''">
+      AND d.chnlno = #{chnlno}
+    </if>
+    <if test="fldtype != null and fldtype != ''">
+      AND d.fldtype = #{fldtype}
+    </if>
+  </select>
+
+  <select id="findComFld" resultType="Map" >
+    SELECT
+    b.DATAPKGFLDNO AS "datapkgfldno",a.CHNLNO AS "chnlno", a.COMMSTRUCTNO AS "commstructno", a.COMMSTRUCTFLDNO AS "commstructfldno",
+    a.COMMSTRUCTFLDNAME AS "commstructfldname", a.COMMSTRUCTFLDEXPR AS "commstructfldexpr", a.FLDTYPE AS "fldtype",
+     a.STRUCTVARTYPE AS "structvartype", a.MIXVARTYPE AS "mixvartype", a.FLDLEN AS "fldlen",
+     a.ALIGNMODE AS "alignmode", a.FILLSMBL AS "fillsmbl", a.ENDSMBLFLAG AS "endsmblflag",
+      a.BREAKSMBL AS "breaksmbl", a.NLVARLEN AS "nlvarlen", a.NLVARFLAG AS "nlvarflag",
+      a.NLVARPOWER AS "nlvarpower", a.VARNO AS "varno", a.PINFLAG AS "pinflag", a.MACFLAG AS "macflag",
+      a.CNAME AS "cname", a.CTIME AS "ctime", a.MNAME AS "mname", a.MTIME AS "mtime",
+    b.DATAPKGNO AS "datapkgno",b.PROCFUNC AS "procfunc"
+    FROM
+    T_SYS_COMM_STRUCT_FLD a, T_SYS_PKG_FLD b
+    WHERE
+    	    a.CHNLNO = b.CHNLNO
+		AND	a.COMMSTRUCTFLDNO = b.COMMSTRUCTFLDNO
+		AND a.COMMSTRUCTNO = b.COMMSTRUCTNO
+		AND b.CHNLNO =${chnlno}
+        AND b.DATAPKGNO =${datapkgno}
+        AND b.COMMSTRUCTNO = ${commstructno}
+    ORDER BY b.DATAPKGFLDNO
+  </select>
+
+  <insert id="insertCommFld" parameterType="com.fudian.mid.transet.domain.CommFld">
+    <selectKey resultType="java.lang.Short" keyProperty="commstructfldno" order="BEFORE">
+      SELECT NVL(max(CommStructFldNo)+1,1) as commstructfldno FROM T_SYS_COMM_STRUCT_FLD WHERE CHNLNO=#{chnlno} AND COMMSTRUCTNO=#{commstructno}
+    </selectKey>
+    INSERT INTO T_SYS_COMM_STRUCT_FLD(CHNLNO, COMMSTRUCTNO, COMMSTRUCTFLDNO, COMMSTRUCTFLDNAME, COMMSTRUCTFLDEXPR, FLDTYPE, STRUCTVARTYPE, MIXVARTYPE, FLDLEN, ALIGNMODE, FILLSMBL, ENDSMBLFLAG, BREAKSMBL, NLVARLEN, NLVARFLAG, NLVARPOWER, VARNO, PINFLAG, MACFLAG, CNAME, CTIME, MNAME, MTIME)
+    VALUES (#{chnlno}, #{commstructno},#{commstructfldno},#{commstructfldname},#{commstructfldexpr}, #{fldtype}, #{structvartype},
+    #{mixvartype}, #{fldlen}, #{alignmode}, #{fillsmbl}, #{endsmblflag}, #{breaksmbl},#{nlvarlen}, #{nlvarflag}, #{nlvarpower},
+    #{varno}, #{pinflag}, #{macflag}, #{cname}, #{ctime}, #{mname}, #{mtime})
+  </insert>
+
+</mapper>

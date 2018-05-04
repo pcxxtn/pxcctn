@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.SPkgMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.SPkg" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="CHNLNO" property="chnlno" jdbcType="VARCHAR" />
+    <result column="DATAPKGNO" property="datapkgno" jdbcType="VARCHAR" />
+    <result column="DATAPKGNAME" property="datapkgname" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTNO" property="commstructno" jdbcType="VARCHAR" />
+    <!--<result column="DATAPKGTYPE" property="datapkgtype" jdbcType="VARCHAR" />-->
+    <!--<result column="PKGPROCCOMP" property="pkgproccomp" jdbcType="VARCHAR" />-->
+    <result column="PREPROC" property="preproc" jdbcType="VARCHAR" />
+    <result column="ENDPROC" property="endproc" jdbcType="VARCHAR" />
+    <result column="MACMODE" property="macmode" jdbcType="VARCHAR" />
+    <result column="PINMODE" property="pinmode" jdbcType="VARCHAR" />
+    <result column="CREDTYPE" property="credtype" jdbcType="VARCHAR" />
+    <result column="ICREDFLAG" property="icredflag" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+
+  </resultMap>
+
+  <select id="getMaxKey" resultType="java.lang.Integer">
+    SELECT NVL(max(DATAPKGNO)+1,1) as datapkgno FROM T_SYS_PKG
+  </select>
+
+
+  <select id="findSPkg"  resultMap="BaseResultMap">
+    select
+    t.CHNLNO,
+    t.DATAPKGNO ,
+    t.DATAPKGNAME ,
+    t.COMMSTRUCTNO ,
+    t.PREPROC ,
+    t.ENDPROC,
+    t.MACMODE,
+    t.PINMODE,
+    t.CREDTYPE,
+    t.ICREDFLAG
+    from T_SYS_PKG t
+    <where>
+      <if test="chnlno != null and chnlno != ''">
+        AND t.CHNLNO = #{chnlno}
+      </if>
+      <if test="datapkgno != null and datapkgno != ''">
+        AND t.DATAPKGNO = #{datapkgno}
+      </if>
+      <if test="datapkgname != null and datapkgname != ''">
+        AND  t.DATAPKGNAME LIKE
+       '%'||#{datapkgname}||'%'
+      </if>
+    </where>
+    ORDER BY  t.DATAPKGNAME
+  </select>
+
+  <update id="updateSPkg">
+    UPDATE T_SYS_PKG SET
+    DATAPKGNAME = #{datapkgname},
+    COMMSTRUCTNO = #{commstructno},
+    PREPROC = #{preproc},
+    ENDPROC = #{endproc},
+    MACMODE = #{macmode},
+    PINMODE = #{pinmode},
+    CREDTYPE = #{credtype},
+    ICREDFLAG = #{icredflag},
+    MNAME = #{mname},
+    MTIME = #{mtime}
+    WHERE CHNLNO = #{chnlno} AND DATAPKGNO = #{datapkgno}
+  </update>
+
+
+</mapper>

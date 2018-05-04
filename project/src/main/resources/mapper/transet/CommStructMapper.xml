@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.CommStructMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.CommStruct" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="CHNLNO" property="chnlno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTNO" property="commstructno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTNAME" property="commstructname" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTTYPE" property="commstructtype" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="VARCHAR" />
+    <result column="ENCODING" property="encoding" jdbcType="VARCHAR" />
+    <result column="IFSPACE" property="ifspace" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <!--<insert id="addTest" parameterType="java.util.List" useGeneratedKeys="false">-->
+    <!--<selectKey resultType="java.lang.Short" keyProperty="datapf" order="BEFORE">-->
+      <!--SELECT NVL(max(btest)+1,1) as datapf FROM test1 WHERE atest=1-->
+    <!--</selectKey>-->
+    <!--begin-->
+    <!--<foreach collection="list" item="item" index="datapf" separator=";">-->
+      <!--insert into test1-->
+      <!--values-->
+      <!--(-->
+      <!--#{item.atest},-->
+      <!--#{datapf},-->
+      <!--#{item.ctest}-->
+      <!--)-->
+    <!--</foreach>-->
+    <!--;end;-->
+  <!--</insert>-->
+</mapper>

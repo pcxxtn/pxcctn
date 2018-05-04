@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.BusiTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.BusiType" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="BUSITYPE" property="busitype" jdbcType="VARCHAR" />
+    <result column="BUSINAME" property="businame" jdbcType="VARCHAR" />
+    <result column="DETTBLNAME" property="dettblname" jdbcType="VARCHAR" />
+    <result column="DETSTRUCTNAME" property="detstructname" jdbcType="VARCHAR" />
+    <result column="BUSISTATUS" property="busistatus" jdbcType="VARCHAR" />
+    <result column="CURDATE" property="curdate" jdbcType="VARCHAR" />
+    <result column="LASTDATE" property="lastdate" jdbcType="VARCHAR" />
+    <result column="LASTBATCHDATE" property="lastbatchdate" jdbcType="VARCHAR" />
+    <result column="TRANBEGINTIME" property="tranbegintime" jdbcType="VARCHAR" />
+    <result column="TRANENDTIME" property="tranendtime" jdbcType="VARCHAR" />
+    <result column="OTHERNAME" property="othername" jdbcType="VARCHAR" />
+    <result column="OTHERADDR" property="otheraddr" jdbcType="VARCHAR" />
+    <result column="OTHERPHONE" property="otherphone" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+    <result column="NOTE" property="note" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findBusiType" resultType="Map" >
+    select B.*
+    from T_SYS_BUSI_TYPE B
+    where 1=1
+    <if test="busitype != null and busitype != ''">
+      AND B.BUSITYPE = #{busitype}
+    </if>
+    <if test=" businame!= null and businame != ''">
+      AND B.BUSINAME = #{businame}
+    </if>
+
+    order by B.BUSITYPE
+  </select>
+</mapper>

@@ -1,0 +1,62 @@
+<div class="modal fade" id="spkg-proc-func" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="modal-title">修改报文域</h3>
+            </div>
+            <div class="modal-body">
+                <form id="spkg-proc-func-form">
+                   <!-- <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字段名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="commstructfldname" class="form-control" readonly="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 处理参数：
+					            </span>
+                                <div class="form-group">
+                                   <!-- <select  class="form-control" id="procfunc" name="procfunc"></select>-->
+                                    <select class="form-control" name="procfunc" id="procfunc">
+                                    </select>
+                                    <input name="datapkgno" hidden/>
+                                    <input name="datapkgfldno" hidden/>
+                                    <input name="commstructfldno" hidden/>
+                                    <input name="commstructno" hidden/>
+                                    <input name="chnlno" hidden/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 循环次数：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="circleSum" class="form-control" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="spkg-proc-func-btn">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/spkg/spkgProcFunc.js}"></script>

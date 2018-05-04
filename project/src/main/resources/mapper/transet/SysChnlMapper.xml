@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fudian.mid.transet.dao.SysChnlMapper">
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.SysChnl">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="CHNLNO" jdbcType="VARCHAR" property="chnlno" />
+    <result column="CHNLNAME" jdbcType="VARCHAR" property="chnlname" />
+    <result column="CHNLSTATUS" jdbcType="VARCHAR" property="chnlstatus" />
+    <result column="COMMPCOL" jdbcType="VARCHAR" property="commpcol" />
+    <result column="COMMMODE" jdbcType="VARCHAR" property="commmode" />
+    <result column="IPADDRESS" jdbcType="VARCHAR" property="ipaddress" />
+    <result column="RECVPORT" jdbcType="VARCHAR" property="recvport" />
+    <result column="SENDPORT" jdbcType="VARCHAR" property="sendport" />
+    <result column="TRACECODECLRFLAG" jdbcType="VARCHAR" property="tracecodeclrflag" />
+    <result column="GWPROCNO" jdbcType="DECIMAL" property="gwprocno" />
+    <result column="RECVLEN" jdbcType="DECIMAL" property="recvlen" />
+    <result column="TRACECODEOFFSET" jdbcType="DECIMAL" property="tracecodeoffset" />
+    <result column="TRACECODELEN" jdbcType="DECIMAL" property="tracecodelen" />
+    <result column="TRANCODEOFFSET" jdbcType="DECIMAL" property="trancodeoffset" />
+    <result column="TRANCODELEN" jdbcType="DECIMAL" property="trancodelen" />
+    <result column="GATEWAYPROC" jdbcType="DECIMAL" property="gatewayproc" />
+    <result column="RETCODEOFFSET" jdbcType="DECIMAL" property="retcodeoffset" />
+    <result column="RETCODELEN" jdbcType="DECIMAL" property="retcodelen" />
+    <result column="INTERCEPT" jdbcType="VARCHAR" property="intercept" />
+    <result column="CNAME" jdbcType="VARCHAR" property="cname" />
+    <result column="CTIME" jdbcType="VARCHAR" property="ctime" />
+    <result column="MNAME" jdbcType="VARCHAR" property="mname" />
+    <result column="MTIME" jdbcType="VARCHAR" property="mtime" />
+  </resultMap>
+
+
+
+  <select id="findSysChnl" resultType="Map">
+    select d.CHNLNO as chnlno, d.CHNLNAME as chnlname,d.CHNLSTATUS as chnlstatus,
+    d.COMMPCOL as commpcol,d.COMMMODE as commmode,d.IPADDRESS as ipaddress,
+    d.RECVPORT as recvport,d.SENDPORT as sendport,d.TRACECODECLRFLAG as tracecodeclrflag,
+    d.GWPROCNO as gwprocno,d.RECVLEN as recvlen,d.TRACECODEOFFSET as tracecodeoffset,
+    d.TRACECODELEN as tracecodelen,d.TRANCODEOFFSET as trancodeoffset,d.TRANCODELEN as trancodelen,
+    d.RETCODEOFFSET as retcodeoffset,d.RETCODELEN as retcodelen,d.INTERCEPT as intercept
+
+
+    from T_SYS_CHNL d
+    where 1=1
+    <if test="chnlno != null and chnlno != ''">
+      AND d.CHNLNO = #{chnlno}
+    </if>
+    order by d.CHNLNO
+  </select>
+</mapper>

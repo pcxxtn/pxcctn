@@ -1,0 +1,226 @@
+<div class="modal fade" id="chnl-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="chnl-add-modal-title">渠道维护</h3>
+            </div>
+            <div class="modal-body">
+                <form id="chnl-add-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道号：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="chnlno" class="form-control">
+                                    <input type="hidden" name="chnlnoold" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="chnlname" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯协议：
+					            </span>
+                                <div class="form-group">
+                                    <select type="text" name="commpcol" id="commpcol" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯模式：
+					            </span>
+                                <div class="form-group">
+                                    <select type="text" name="commmode" class="form-control">
+                                        <option value="0">同步长连接</option>
+                                        <option value="1">同步短连接</option>
+                                        <option value="2">异步长连接</option>
+                                        <option value="3">异步短连接</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道状态：
+					            </span>
+                                <div class="form-group">
+                                    <select id="chnlstatus" name="chnlstatus" class="form-control">
+                                        <option value="0">正常</option>
+                                        <option value="1">关闭</option>
+                                        <option value="2">异常</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 ip地址：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="ipaddress" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 接收端口：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="recvport" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 发送端口：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="sendport" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 接收长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="recvlen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 处理函数：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="gatewayproc" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 交易码长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="trancodelen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 交易码偏移：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="trancodeoffset" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 跟踪码长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="tracecodelen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 跟踪码偏移：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="tracecodeoffset" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 跟踪码清除标志：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="tracecodeclrflag" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 返回码偏移：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="retcodeoffset" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 返回码长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="retcodelen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 拦截器：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="intercept" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="chnl-add-button" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script data-th-src="@{js/app/transet/sysChnl/sysChnlAdd.js}"></script>

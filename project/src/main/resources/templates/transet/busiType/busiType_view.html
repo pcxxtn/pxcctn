@@ -1,0 +1,46 @@
+<div class="card">
+    <div data-th-include="transet/busiType/busiType_add"></div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" /> <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="busiType:add,busiType:delete,busiType:update">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#busi-type-add" shiro:hasPermission="busiType:add">新增</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateBusiType()" shiro:hasPermission="busiType:update">修改</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deleteBusiType()" shiro:hasPermission="busiType:delete">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="busi-type-table-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 业务种类： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="busitype" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 业务名称： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="businame" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table id="busiTypeTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script data-th-src="@{js/app/transet/busiType/busiType.js}"></script>

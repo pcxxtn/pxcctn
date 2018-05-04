@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.TranCodeConvMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.TranCodeConv" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="CHNLNO" property="chnlno" jdbcType="VARCHAR" />
+    <result column="FTRANCODE" property="ftrancode" jdbcType="VARCHAR" />
+    <result column="BUSITYPE" property="busitype" jdbcType="VARCHAR" />
+    <result column="TRANPATH" property="tranpath" jdbcType="VARCHAR" />
+    <result column="TTRANNAME" property="ttranname" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <delete id="deleteTranCodeConv">
+    DELETE FROM T_SYS_TRAN_CODE_CONV
+    WHERE CHNLNO = #{chnlno}
+    AND  FTRANCODE =#{ftrancode}
+  </delete>
+
+  <update id="updateTranCodeConv">
+    UPDATE T_SYS_TRAN_CODE_CONV SET
+    MNAME = #{mname},
+    MTIME = #{mtime}
+    <if test="busitype != null">
+      ,BUSITYPE = #{busitype}
+    </if>
+    <if test="tranpath != null">
+      ,TRANPATH = #{tranpath}
+    </if>
+    <if test="ttranname != null">
+      ,TTRANNAME = #{ttranname}
+    </if>
+    WHERE CHNLNO = #{chnlno}
+    AND FTRANCODE = #{ftrancode}
+  </update>
+</mapper>

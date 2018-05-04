@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.pkg.dao.DataPkgMapper" >
+    <resultMap id="BaseResultMap" type="com.fudian.mid.pkg.FldBean" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="commstructfldname" property="commstructfldname" jdbcType="VARCHAR" />
+        <result column="fldlen" property="fldlen" jdbcType="VARCHAR" />
+        <result column="fldtype" property="fldtype" jdbcType="VARCHAR" />
+        <result column="procfunc" property="procfunc" jdbcType="VARCHAR" />
+        <result column="fillsmbl" property="fillsmbl" jdbcType="VARCHAR" />
+        <result column="alignmode" property="alignmode" jdbcType="VARCHAR" />
+        <result column="breaksmbl" property="breaksmbl" jdbcType="VARCHAR" />
+        <result column="endsmblflag" property="endsmblflag" jdbcType="VARCHAR" />
+        <result column="encoding" property="encoding" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findUnPackFld" resultMap="BaseResultMap" >
+          select col.procfunc,sd.commstructfldname,sd.FLDLEN,sd.FLDTYPE,sd.fillsmbl,sd.alignmode,sd.breaksmbl,sd.endsmblflag,cs.encoding
+          from (select pf.* from t_sys_tran_pkg tp,t_sys_pkg_fld pf where tp.chnlno=#{chnlno,jdbcType=VARCHAR} and
+          tp.ftrancode=#{ftrancode,jdbcType=VARCHAR} and pf.chnlno=tp.chnlno and tp.UNPACKPKGNO=pf.DATAPKGNO)  col left join t_sys_comm_struct_fld sd
+          on (col.chnlno=sd.chnlno and col.commstructno=sd.commstructno and col.commstructfldno=sd.commstructfldno)   left   join t_sys_comm_struct cs    on  sd.commstructno =cs.commstructno   and  cs.chnlno =sd.chnlno order by col.DataPkgFldNo
+    </select>
+    <select id="findPackFld" resultMap="BaseResultMap" >
+        select col.procfunc,sd.commstructfldname,sd.FLDLEN,sd.FLDTYPE,sd.fillsmbl,sd.alignmode,sd.breaksmbl,sd.endsmblflag,cs.encoding
+        from (select pf.* from t_sys_tran_pkg tp,t_sys_pkg_fld pf where tp.chnlno=#{chnlno,jdbcType=VARCHAR} and
+        tp.ftrancode=#{ftrancode,jdbcType=VARCHAR} and pf.chnlno=tp.chnlno and tp.PACKPKGNO=pf.DATAPKGNO)  col left join t_sys_comm_struct_fld sd
+        on (col.chnlno=sd.chnlno and col.commstructno=sd.commstructno and col.commstructfldno=sd.commstructfldno)  left   join t_sys_comm_struct cs    on  sd.commstructno =cs.commstructno    and  cs.chnlno =sd.chnlno   order by col.DataPkgFldNo
+    </select>
+    <select id="findCommNameByPkgNo" resultMap="BaseResultMap" >
+        select sf.commstructfldname,sf.fldlen,sf.fldtype,pf.procfunc,sf.fillsmbl,sf.alignmode,sf.breaksmbl,sf.endsmblflag
+        from t_sys_pkg_fld pf,t_sys_comm_struct_fld sf where pf.chnlno=#{chnlno,jdbcType=VARCHAR}
+        and pf.datapkgno=#{datapkgno,jdbcType=VARCHAR} and sf.chnlno=pf.chnlno and sf.commstructno=pf.commstructno
+        and sf.commstructfldno=pf.commstructfldno order by pf.datapkgfldno
+    </select>
+
+</mapper>

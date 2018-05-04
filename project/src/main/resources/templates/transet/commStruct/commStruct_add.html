@@ -1,0 +1,113 @@
+<div class="modal fade" id="commStruct-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="commStruct-add-modal-title">新增通讯结构</h3>
+            </div>
+            <div class="modal-body">
+                <form id="commStruct-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道号：
+					            </span>
+                                <div class="form-group">
+                                    <select name="chnlno" id="chnlno" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    通讯结构号：
+					            </span>
+                                <div class="form-group">
+                                    <input name="commstructno" id="commstructno" class="form-control">
+                                    <input name="oldcommstructno" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯结构名：
+					            </span>
+                                <div class="form-group">
+                                    <input name="commstructname" class="form-control">
+                                    <input name="oldcommstructname" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯结构类型：
+					            </span>
+                                <div class="form-group">
+                                    <select name="commstructtype" id="commstructtype" class="form-control">
+                                        <option value="">请选择</option>
+                                        <option value="0">0-变长</option>
+                                        <option value="1">1-定长</option>
+                                        <option value="2">2-定长分隔符</option>
+                                        <option value="3">3-xml</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 XML版本号：
+					            </span>
+                                <div class="form-group">
+                                    <select name="version" class="form-control">
+                                        <option value="">请选择</option>
+                                        <option value="0">0-1.1</option>
+                                        <option value="1">1-2.0</option>
+                                        <option value="2">2-3.0</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 编码方式：
+					            </span>
+                                <div class="form-group">
+                                    <select name="encoding" class="form-control">
+                                        <option value="">请选择</option>
+                                        <option value="0">0-GBK</option>
+                                        <option value="1">1-UTF-8</option>
+                                        <!--<option value="2">2-3.0</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 折行和缩进：
+					            </span>
+                                <input type="checkbox" name="ifspace" checked>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="commStruct-add-btn" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/commStruct/commStructAdd.js}"></script>

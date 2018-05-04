@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.TranDefMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.TranDef" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="CHNLNO" property="chnlno" jdbcType="CHAR" />
+    <result column="TRAN_CODE" property="tranCode" jdbcType="VARCHAR" />
+    <result column="TRAN_CHN_NAME" property="tranChnName" jdbcType="VARCHAR" />
+    <result column="PACKPKGNO" property="packpkgno" jdbcType="CHAR" />
+    <result column="UNPACKPKGNO" property="unpackpkgno" jdbcType="CHAR" />
+    <result column="ERRPKGNO" property="errpkgno" jdbcType="CHAR" />
+    <result column="NOTE" property="note" jdbcType="VARCHAR" />
+    <result column="NOTE2" property="note2" jdbcType="VARCHAR" />
+    <result column="NOTE3" property="note3" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findTran" resultType="Map" >
+    select T.*
+    from S_TRAN_DEF T
+    where 1=1
+      <if test="busino != null and busino != ''">
+          AND T.BUSINO = #{busino}
+      </if>
+    <if test="tranCode != null and tranCode != ''">
+      AND T.TRAN_CODE = #{tranCode}
+    </if>
+    <if test="tranChnName != null and tranChnName != ''">
+      AND T.TRAN_CHN_NAME LIKE '%'||#{tranChnName}||'%'
+    </if>
+    order by T.TRAN_CODE
+  </select>
+</mapper>

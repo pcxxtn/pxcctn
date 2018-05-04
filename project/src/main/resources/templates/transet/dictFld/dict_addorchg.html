@@ -1,0 +1,118 @@
+<div class="modal fade" id="dictFld-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="dictFld-add-modal-title">新增数据字典</h3>
+            </div>
+            <div class="modal-body">
+                <form id="dictFld-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典名：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="dictName" class="form-control">
+                                    <input type="text" hidden name="olddictName" class="form-control">
+                                    <input type="text" hidden name="dictNo" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典中文名：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="dictChnName" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典类型：
+					            </span>
+                                <div class="form-group">
+                                    <select name="dictType" id="dictType"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典属性：
+					            </span>
+                                <div class="form-group">
+                                    <select name="dictCate" id="dictCate"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典长度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="dictLen" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 字典维度：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="dictArrayNo" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 是否参与mac校验：
+					            </span>
+                                <!--<div class="form-group">-->
+                                    <input type="checkbox" name="dictMacSign" checked>
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 pin码标志：
+					            </span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" name="dictPinSign" checked class="toggle-switch__checkbox">
+                                    <i class="toggle-switch__helper"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="dictFld-add-btn" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/dictFld/dictFldAdd.js}"></script>

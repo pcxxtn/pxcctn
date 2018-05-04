@@ -1,0 +1,136 @@
+<div class="modal fade" id="busi-type-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="busi-type-add-modal-title">添加业务种类</h3>
+            </div>
+            <div class="modal-body">
+                <form id="busi-type-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 业务种类：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="busitype" class="form-control">
+                                    <input type="hidden" name="busitypeold" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 业务名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="businame" class="form-control">
+                                    <!--<input type="text" hidden name="oldTranCode" class="form-control">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 明细表名：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="dettblname" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 明细结构名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="detstructname" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 业务状态：
+					            </span>
+                                <div class="form-group">
+                                    <!--<input type="text" name="unpackpkgno" class="form-control">-->
+                                    <select style="width: 100%;" id="busistatus" name="busistatus">
+                                      <!--  <option >请选择</option>-->
+                                        <option value="0">正常</option>
+                                        <option value="1">关闭</option>
+                                        <option value="2">异常</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 第三方名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="othername" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 第三方地址：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="otheraddr" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 联系电话：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="otherphone" class="form-control">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 备注：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="note" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="busi-type-add-btn" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">取消</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/busiType/busiType_add.js}"></script>

@@ -1,0 +1,205 @@
+<div class="modal fade" id="spkg-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="spkg-add-modal-title">新增报文格式</h3>
+            </div>
+            <div class="modal-body">
+                <form id="spkg-add-form">
+                    <div class="row">
+                        <span style="color: red;line-height: 2.75;text-align: center;">*</span>
+                        <div class="col-sm-11">
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 渠道名称：
+					            </span>
+                                <div class="form-group">
+                                   <!-- <input type="text" name="chnlno" class="form-control">-->
+                                    <select  class="form-control" id="chnlno" name="chnlno"></select>
+                                    <!--<input name="chnlno" hidden/>-->
+                                    <input name="datapkgno" hidden/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span style="color: red;line-height: 2.75;text-align: center;">*</span>
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 格式名称：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="datapkgname" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span style="color: red;line-height: 2.75;text-align: center;">*</span>
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 通讯结构：
+					            </span>
+                                <div class="form-group">
+                                    <!--<input type="text" name="commstructno" class="form-control">-->
+                                    <select   class="form-control" id="commstructno" name="commstructno"></select>
+                                   <!-- <input name="commstructno" hidden/>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <!-- <div class="row">
+                        <span style="color: red;line-height: 2.75;text-align: center;">*</span>
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 格式类型：
+					            </span>
+                                <div class="form-group">
+                                   &lt;!&ndash; <input type="text" name="datapkgtype" class="form-control">&ndash;&gt;
+                                    <select class="form-control" name="datapkgtype">
+                                        <option value="8">8－8583</option>
+                                        <option value="N">N－不含Bitmap的类8583</option>
+                                        <option value="S">S－选择数据</option>
+                                        <option value="X">X－xml</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <!--<div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 包处理类：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="pkgproccomp" class="form-control">
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 前处理：
+					            </span>
+                                <div class="form-group">
+                                     <input type="text" name="preproc" class="form-control" value="0000">
+                                    <!--<select class="form-control" name="preproc">-->
+                                        <!--<option value="0000">空函数</option>-->
+                                    <!--</select>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 后处理：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="endproc" class="form-control" value="0000">
+                                    <!--<select class="form-control" name="endproc">-->
+                                        <!--<option value="0000">空函数</option>-->
+                                    <!--</select>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-11">
+                        <div class="input-group">
+                                <span class="input-group-addon">
+					               	 mac方式：
+					            </span>
+                            <div class="form-group">
+                                <select class="form-control" name="macmode">
+                                    <option value="-">请选择</option>
+                                    <option value="0">去填充符结束符分隔符</option>
+                                    <option value="1">整个字段（只去掉分隔符）</option>
+                                </select>
+                                <!--<input type="text" name="macmode" class="form-control">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-sm-11">
+                        <div class="input-group">
+                                <span class="input-group-addon">
+					               	 pin方式：
+					            </span>
+                            <div class="form-group">
+                                <select class="form-control" name="pinmode">
+                                    <option value="-">请选择</option>
+                                    <option value="0">去填充符结束符分隔符</option>
+                                    <option value="1">整个字段（只去掉分隔符）</option>
+                                </select>
+                                <!--<input type="text" name="pinmode" class="form-control">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 凭证类别：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="credtype" class="form-control" value="00">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span style="color: red;line-height: 2.75;text-align: center;">*</span>
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 重空标志：
+					            </span>
+                                <div class="form-group">
+                                   <!-- <input type="text" name="icredflag" class="form-control">-->
+                                    <label class="custom-control custom-radio">
+                                        <input name="icredflag" type="radio" value="0" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">打印</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input name="icredflag" type="radio" value="1" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">不打印</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <!-- <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 数据字典号：
+					            </span>
+                                <div class="form-group">
+                                    <select style="width: 100%;" id="dictsSelect" name="dictsSelect"></select>
+                                    &lt;!&ndash; <input name="dictNos" hidden/>&ndash;&gt;
+                                    &lt;!&ndash; <input type="text" name="dictNo" class="form-control">&ndash;&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="spkg-add-button" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/spkg/spkgAdd.js}"></script>

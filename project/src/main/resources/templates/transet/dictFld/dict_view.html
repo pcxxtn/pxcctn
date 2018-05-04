@@ -1,0 +1,63 @@
+<div class="card">
+    <div data-th-include="transet/dictFld/dict_addorchg"></div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" />
+                    <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="dictFld:add,dictFld:delete,dictFld:update">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#dictFld-add" shiro:hasPermission="dictFld:add">新增字典</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDictFld()" shiro:hasPermission="dictFld:update">修改字典</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deleteDictFld()" shiro:hasPermission="dictFld:delete">删除字典</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="dictFld-table-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 字典中文名： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="chnname" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 字典名： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="egnname" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 字典类型： </span>
+                                    <div class="form-group">
+                                        <select class="form-control" name="type">
+                                            <option value="" selected>所有</option>
+                                            <option value="0">C-字符串</option>
+                                            <option value="1">D-双精度</option>
+                                            <option value="2">F-浮点数</option>
+                                            <option value="3">I-整型</option>
+                                            <option value="4">L-长整型</option>
+                                            <option value="5">S-短整型</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table id="dictFldTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script data-th-src="@{js/app/transet/dictFld/dictFld.js}"></script>

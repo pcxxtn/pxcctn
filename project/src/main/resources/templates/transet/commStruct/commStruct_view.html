@@ -1,0 +1,44 @@
+<style>
+    #icon-add-50{
+        position: relative;
+        box-sizing: border-box;
+        width: 70px;
+        height: 70px;
+        border: 2px dashed #9a9ba3;
+        border-radius: 50%;
+    }
+    #icon-add-50:before{
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        left: 50%;
+        top: 50%;
+        margin-left: -15px;
+        margin-top: -1px;
+        background-color: #aaabb2;
+    }
+    #icon-add-50:after{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 30px;
+        left: 50%;
+        top: 50%;
+        margin-left: -1px;
+        margin-top: -15px;
+        background-color: #aaabb2;
+    }
+</style>
+<div>
+    <div data-th-include="transet/commStruct/commStruct_add"></div>
+    <div class="row groups commlist" id="commlist-div" style="display: flex;justify-content: flex-start;">
+        <div style="flex: 0 0 16.66667%;max-width: 16.66667%;">
+            <div shiro:hasAnyPermissions="commStruct:add,commStruct:update,commStruct:delete" class="groups__info"
+                 style="display: flex;justify-content: center">
+                <div onclick="addCommStruct()" id="icon-add-50" style="background-color: greenyellow;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/transet/commStruct/commStruct.js}"></script>

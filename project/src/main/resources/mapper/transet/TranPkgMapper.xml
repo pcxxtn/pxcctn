@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.TranPkgMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.TranPkg" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="BUSINO" property="busino" jdbcType="VARCHAR" />
+    <result column="FTRANCODE" property="ftrancode" jdbcType="VARCHAR" />
+    <result column="FTRANNAME" property="ftranname" jdbcType="VARCHAR" />
+    <result column="PKGTYPE" property="pkgtype" jdbcType="VARCHAR" />
+    <result column="PKGPROCCOMP" property="pkgproccomp" jdbcType="VARCHAR" />
+    <result column="PACKPKGNO" property="packpkgno" jdbcType="VARCHAR" />
+    <result column="UNPACKPKGNO" property="unpackpkgno" jdbcType="VARCHAR" />
+    <result column="ERRPKGNO" property="errpkgno" jdbcType="VARCHAR" />
+    <result column="BUSITYPE" property="busitype" jdbcType="VARCHAR" />
+    <result column="TRANCODE" property="trancode" jdbcType="VARCHAR" />
+    <result column="TTRANNAME" property="ttranname" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findTranPkg" resultType="Map" >
+    select P.*
+    from T_SYS_TRAN_PKG P
+    where 1=1
+    <if test="chnlno != null and chnlno != ''">
+      AND P.CHNLNO = #{chnlno}
+    </if>
+    <if test="ftrancode != null and ftrancode != ''">
+      AND P.FTRANCODE = #{ftrancode}
+    </if>
+    <if test="ftranname != null and ftranname != ''">
+      AND P.FTRANNAME LIKE '%'||#{ftranname}||'%'
+    </if>
+    order by P.FTRANCODE
+  </select>
+
+  <delete id="deleteTranPkg">
+    DELETE FROM T_SYS_TRAN_PKG
+    WHERE CHNLNO = #{chnlno}
+       AND  FTRANCODE =#{ftrancode}
+  </delete>
+
+  <update id="updateTranPkg">
+    UPDATE T_SYS_TRAN_PKG SET
+    MNAME = #{mname},
+    MTIME = #{mtime}
+    <if test="ftranname != null">
+      ,FTRANNAME = #{ftranname}
+    </if>
+    <if test="packpkgno != null">
+      ,PACKPKGNO = #{packpkgno}
+    </if>
+    <if test="unpackpkgno != null">
+      ,UNPACKPKGNO = #{unpackpkgno}
+    </if>
+    <if test="errpkgno != null">
+      ,ERRPKGNO = #{errpkgno}
+    </if>
+    WHERE CHNLNO = #{chnlno}
+    AND FTRANCODE = #{ftrancode}
+  </update>
+
+</mapper>

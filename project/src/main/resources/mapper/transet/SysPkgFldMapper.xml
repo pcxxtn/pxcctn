@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudian.mid.transet.dao.SysPkgFldMapper" >
+  <resultMap id="BaseResultMap" type="com.fudian.mid.transet.domain.SysPkgFld" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="CHNLNO" property="chnlno" jdbcType="VARCHAR" />
+    <id column="DATAPKGNO" property="datapkgno" jdbcType="VARCHAR" />
+    <id column="DATAPKGFLDNO" property="datapkgfldno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTNO" property="commstructno" jdbcType="VARCHAR" />
+    <result column="COMMSTRUCTFLDNO" property="commstructfldno" jdbcType="DECIMAL" />
+    <result column="PROCFUNC" property="procfunc" jdbcType="VARCHAR" />
+    <result column="CNAME" property="cname" jdbcType="VARCHAR" />
+    <result column="CTIME" property="ctime" jdbcType="VARCHAR" />
+    <result column="MNAME" property="mname" jdbcType="VARCHAR" />
+    <result column="MTIME" property="mtime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findSPkgFld"  resultMap="BaseResultMap">
+    select
+    t.CHNLNO,
+    t.DATAPKGNO ,
+    t.DATAPKGFLDNO ,
+    t.COMMSTRUCTNO ,
+    t.COMMSTRUCTFLDNO ,
+    t.PROCFUNC,
+    t.CNAME ,
+    t.CTIME,
+    t.MNAME,
+    t.MTIME
+    from T_SYS_PKG_FLD t
+    <where>
+      <if test="chnlno != null and chnlno != ''">
+        AND t.CHNLNO = #{chnlno}
+      </if>
+      <if test="datapkgno != null and datapkgno != ''">
+        AND t.DATAPKGNO = #{datapkgno}
+      </if>
+      <if test="commstructno != null and commstructno != ''">
+        AND  t.COMMSTRUCTNO = #{commstructno}
+      </if>
+      <if test="commstructfldno != null and commstructfldno != ''">
+        AND  t.COMMSTRUCTFLDNO = #{commstructfldno}
+      </if>
+      <if test="datapkgfldno != null and datapkgfldno != ''">
+        AND  t.DATAPKGFLDNO = #{datapkgfldno}
+      </if>
+    </where>
+    ORDER BY  t.DATAPKGFLDNO
+  </select>
+
+  <insert id="addSPkgFld" parameterType="java.util.List" useGeneratedKeys="false">
+    begin
+    <foreach collection="list" item="item" index="index" separator=";">
+      insert into T_SYS_PKG_FLD
+      (CHNLNO,DATAPKGNO,DATAPKGFLDNO,COMMSTRUCTNO,COMMSTRUCTFLDNO,PROCFUNC,CNAME,CTIME)
+      values
+      (
+      #{item.chnlno},
+      #{item.datapkgno},
+      #{item.datapkgfldno},
+      #{item.commstructno},
+      #{item.commstructfldno},
+      #{item.procfunc},
+      #{item.cname},
+      #{item.ctime}
+      )
+    </foreach>
+    ;end;
+  </insert>
+
+  <select id="getFldNo" resultType="java.lang.Short">
+    SELECT NVL(max(DATAPKGFLDNO)+1,1) FROM T_SYS_PKG_FLD WHERE CHNLNO=#{chnlno} AND DATAPKGNO=#{datapkgno}
+  </select>
+
+  <insert id="insertSysPkgFld" parameterType="com.fudian.mid.transet.domain.SysPkgFld">
+    <selectKey resultType="java.lang.Short" keyProperty="datapkgfldno" order="BEFORE">
+      SELECT NVL(max(datapkgfldno)+1,1) as datapkgfldno FROM T_SYS_PKG_FLD WHERE CHNLNO=#{chnlno} AND DATAPKGNO=#{datapkgno}
+    </selectKey>
+    INSERT INTO T_SYS_PKG_FLD
+    (CHNLNO, DATAPKGNO, DATAPKGFLDNO, COMMSTRUCTNO, COMMSTRUCTFLDNO, PROCFUNC, CNAME, CTIME, MNAME, MTIME)
+    VALUES
+    (#{chnlno}, #{datapkgno}, #{datapkgfldno}, #{commstructno},#{commstructfldno} , #{procfunc}, #{cname}, #{ctime}, #{mname},#{mtime})
+  </insert>
+
+  <update id="updateFld">
+    UPDATE T_SYS_PKG_FLD SET
+    PROCFUNC = #{procfunc},
+    MNAME = #{mname},
+    MTIME = #{mtime}
+    WHERE CHNLNO = #{chnlno}
+    AND DATAPKGNO = #{datapkgno}
+    AND DATAPKGFLDNO = #{datapkgfldno}
+    AND COMMSTRUCTNO = #{commstructno}
+    AND COMMSTRUCTFLDNO = #{commstructfldno}
+  </update>
+
+  <delete id="deleteSPkgFld" parameterType="java.util.List">
+    begin
+    <foreach collection="list" item="item" index="index" separator=";">
+      delete from
+      T_SYS_PKG_FLD
+      where
+      CHNLNO = #{item.chnlno}
+     AND DATAPKGNO = #{item.datapkgno}
+      <if test="item.datapkgfldno != null and item.datapkgfldno != ''">
+        AND DATAPKGFLDNO = #{item.datapkgfldno}
+      </if>
+     AND COMMSTRUCTNO = #{item.commstructno}
+     AND COMMSTRUCTFLDNO =  #{item.commstructfldno}
+    </foreach>
+    ;end;
+  </delete>
+</mapper>
