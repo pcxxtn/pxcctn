@@ -60,7 +60,7 @@ public class SPkgController extends BaseController {
         try {
             if ("".equalsIgnoreCase(sPkg.getDatapkgno()+"")||sPkg.getDatapkgno()==null){
                 log.info(sPkg.getChnlno()+"渠道号：");
-                int key = this.sPkgService.getMaxKey();
+                int key = this.sPkgService.getMaxKey(sPkg.getChnlno());
                 sPkg.setDatapkgno(String.valueOf(key));
                 sPkg.setCname(this.getCurrentUser().getUsername());
                 sPkg.setCtime(DateUtil.getDateTime1());

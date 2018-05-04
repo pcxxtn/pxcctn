@@ -13,5 +13,5 @@ public interface SPkgService extends IService<SPkg> {
 
     int updateSPkg(SPkg sPkg);
 
-    int getMaxKey();
+    int getMaxKey(String chnlno);
 }

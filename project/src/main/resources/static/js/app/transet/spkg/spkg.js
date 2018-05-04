@@ -7,6 +7,9 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
+                chnlno: $(".spkg-table-form").find("input[name='chnlno']").val().trim(),
+                commstructno: $(".spkg-table-form").find("input[name='commstructno']").val().trim(),
+                // datapkgno: $(".spkg-table-form").find("input[name='datapkgno']").val().trim(),
                 datapkgname: $(".spkg-table-form").find("input[name='datapkgname']").val().trim()
             };
         },
@@ -14,16 +17,16 @@ $(function() {
             checkbox: true
         }, {
             field: 'chnlno',
-            visible: false
-        }, {
-            field: 'datapkgno',
-            visible: false
-        }, {
-            field: 'datapkgname',
-            title: '格式名称'
+            title: '渠道号'
         },{
             field: 'commstructno',
             title: '通讯结构号'
+        }, {
+            field: 'datapkgno',
+            title: '格式号'
+        }, {
+            field: 'datapkgname',
+            title: '格式名称'
         }
         // ,{
         //     field: 'datapkgtype',

@@ -2,6 +2,7 @@ package com.fudian.mid.transet.dao;
 
 import com.fudian.mid.common.config.MyMapper;
 import com.fudian.mid.transet.domain.SPkg;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface SPkgMapper extends MyMapper<SPkg> {
 
     void insertsPkg(SPkg sPkg);
 
-    int getMaxKey();
+    int getMaxKey(@Param("chnlno") String chnlno);
 }

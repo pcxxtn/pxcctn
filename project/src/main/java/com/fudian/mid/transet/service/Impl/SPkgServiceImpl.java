@@ -37,8 +37,8 @@ public class SPkgServiceImpl extends BaseService<SPkg> implements SPkgService{
     }
 
     @Override
-    public int getMaxKey() {
-        return this.sPkgMapper.getMaxKey();
+    public int getMaxKey(String chnlno) {
+        return this.sPkgMapper.getMaxKey(chnlno);
     }
 
 }

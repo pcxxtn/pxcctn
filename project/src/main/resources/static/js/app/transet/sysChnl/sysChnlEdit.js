@@ -22,7 +22,7 @@ function updatechnl() {
             $form.find("input[name='chnlnoold']").val(chnl.chnlno)
             $form.find("input[name='chnlname']").val(chnl.chnlname);
             $form.find("select[name='chnlstatus']").val(chnl.chnlstatus);
-            $form.find("input[name='commpcol']").val(chnl.commpcol);
+            $form.find("select[name='commpcol']").val(chnl.commpcol);
             $form.find("select[name='commmode']").val(chnl.commmode);
             $form.find("input[name='ipaddress']").val(chnl.ipaddress);
             $form.find("input[name='recvport']").val(chnl.recvport);

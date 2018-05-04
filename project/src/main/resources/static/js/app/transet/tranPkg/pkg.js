@@ -143,6 +143,7 @@ function updatePkg() {
                     $form.find("select[name='packpkgno']").val(pkg.packpkgno);
                     $form.find("select[name='unpackpkgno']").val(pkg.unpackpkgno);
                     $form.find("select[name='errpkgno']").val(pkg.errpkgno);
+                    $form.find("select[name='pkgtype']").val(pkg.pkgtype);
 
                     $form.find("input[name='busitype']").val(pkg.busitype);
                     $form.find("input[name='trancode']").val(pkg.trancode);

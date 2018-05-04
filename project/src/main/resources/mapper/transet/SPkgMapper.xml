@@ -24,8 +24,15 @@
 
   </resultMap>
 
+  <!--<select id="getMaxKey" resultType="java.lang.Integer">-->
+    <!--SELECT NVL(max(DATAPKGNO)+1,1) as datapkgno FROM T_SYS_PKG-->
+  <!--</select>-->
   <select id="getMaxKey" resultType="java.lang.Integer">
-    SELECT NVL(max(DATAPKGNO)+1,1) as datapkgno FROM T_SYS_PKG
+    select ${chnlno}||lpad(min(t.seq),3,'0')
+    from (select rownum seq from dual connect by <![CDATA[ level  <1000 ]]> ) t
+    where t.seq not in (select substr(t.datapkgno, 4, 3)
+    from t_sys_pkg t
+    where t.datapkgno like ${chnlno}||'%')
   </select>
 
 
@@ -46,6 +53,9 @@
       <if test="chnlno != null and chnlno != ''">
         AND t.CHNLNO = #{chnlno}
       </if>
+      <if test="commstructno != null and commstructno != ''">
+        AND t.COMMSTRUCTNO = #{commstructno}
+      </if>
       <if test="datapkgno != null and datapkgno != ''">
         AND t.DATAPKGNO = #{datapkgno}
       </if>
@@ -54,7 +64,7 @@
        '%'||#{datapkgname}||'%'
       </if>
     </where>
-    ORDER BY  t.DATAPKGNAME
+    ORDER BY  t.DATAPKGNO
   </select>
 
   <update id="updateSPkg">
